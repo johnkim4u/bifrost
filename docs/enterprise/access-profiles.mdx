@@ -181,6 +181,7 @@ allowed = (any personal profile) AND (any team or business unit profile) AND (an
 - Virtual keys are capped too, including legacy keys with their own provider settings. If Priya's key allows `gpt-4o` and `claude-sonnet-4`, and Platform's profile allows `claude-sonnet-4` and `gemini-2.5-pro`, the key can only use `claude-sonnet-4`. A key owned by a team that holds a profile is granted by that profile and capped by the customer profiles above it.
 - Budgets and rate limits work exactly as in Rule 2. Every group profile is still charged on every request.
 - A [project](/enterprise/projects) composes with the capped result under its own access rule. An intersect project narrows it further, and a union project can still add its own access.
+- The [customer-scope headers](/features/governance/budget-and-limits) `x-bf-customer-id` and `x-bf-customer-name` are ignored. Every customer above the caller caps the request and is charged for it, and a header naming any customer is accepted without effect.
 
 | Situation (Restrictive) | What Priya can use |
 | --- | --- |
